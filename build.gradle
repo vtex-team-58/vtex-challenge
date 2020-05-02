@@ -41,3 +41,8 @@ application {
     // Define the main class for the application.
     mainClassName = 'com.twilio.Application'
 }
+
+task stage(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.twilio.Application'
+}
