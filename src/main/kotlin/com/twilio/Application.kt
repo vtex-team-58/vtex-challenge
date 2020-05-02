@@ -65,7 +65,6 @@ class Application {
                     }
                 }
             }
-            Spark.init()
         }
 
         private fun enableCors(){
