@@ -32,6 +32,7 @@ class Application {
                 }
             }
             enableCors()
+            port(getHerokuAssignedPort())
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()
                 if(!classObject.annotations.any { it is WebSocket }){
@@ -64,7 +65,6 @@ class Application {
                     }
                 }
             }
-            port(getHerokuAssignedPort())
             Spark.init()
         }
 
