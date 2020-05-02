@@ -10,6 +10,7 @@ import spark.Request
 import spark.Spark
 import spark.Spark.before
 import spark.Spark.webSocket
+import spark.kotlin.port
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.declaredFunctions
@@ -63,6 +64,7 @@ class Application {
                     }
                 }
             }
+            port(getHerokuAssignedPort())
             Spark.init()
         }
 
@@ -79,6 +81,12 @@ class Application {
             return request.queryMap(parameter.name).value() ?: (gson.fromJson(request.body(), type) as HashMap<String, Any?>)[parameter.name] ?: throw Exception("Não encontramos o parametro")
         }
 
+        private fun getHerokuAssignedPort(): Int {
+            val processBuilder = ProcessBuilder()
+            return if (processBuilder.environment()["PORT"] != null) {
+                processBuilder.environment()["PORT"]!!.toInt()
+            } else 4567
+        }
     }
 
     data class ApplicationReturn(
