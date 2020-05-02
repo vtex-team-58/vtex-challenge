@@ -42,7 +42,17 @@ application {
     mainClassName = 'com.twilio.Application'
 }
 
-task stage(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = 'com.twilio.Application'
+defaultTasks = ['clean', 'jar']
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from(configurations.compile)
 }
+
+task stage(dependsOn: ['clean', 'build', 'copyToLib'])
+build.mustRunAfter clean
+
+//task stage(type: JavaExec) {
+//    classpath = sourceSets.main.runtimeClasspath
+//    main = 'com.twilio.Application'
+//}
