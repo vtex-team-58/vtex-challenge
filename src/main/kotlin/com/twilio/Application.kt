@@ -25,6 +25,7 @@ class Application {
         @JvmStatic
         fun main(args: Array<String>) {
             val classes: Set<Class<*>> = reflection.getSubTypesOf(Service::class.java)
+            port(getHerokuAssignedPort())
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()
                 if(classObject.annotations.any { it is WebSocket }){
@@ -32,7 +33,6 @@ class Application {
                 }
             }
             enableCors()
-            port(getHerokuAssignedPort())
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()
                 if(!classObject.annotations.any { it is WebSocket }){
