@@ -29,7 +29,7 @@ class Application {
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()
                 if(classObject.annotations.any { it is WebSocket }){
-                    webSocket("/${classObject.java.packageName.replace("\\.".toRegex(), "/")}/${classObject.simpleName}/socket".toLowerCase(), classInstance::class.java)
+                    webSocket("/${classObject.java.packageName.replace(packageReflectionName.toRegex(), "").replace("\\.".toRegex(), "/")}/${classObject.simpleName}/socket".toLowerCase(), classInstance::class.java)
                 }
             }
             enableCors()
@@ -51,7 +51,7 @@ class Application {
                             }, gson::toJson)
                         }
                         if(method.annotations.any { it is Service.Post }){
-                            Spark.post("${classObject.java.packageName.replace("\\.".toRegex(), "/")}/${classObject.simpleName}/${method.name}".toLowerCase(), { request, response ->
+                            Spark.post("${classObject.java.packageName.replace(packageReflectionName.toRegex(), "").replace("\\.".toRegex(), "/")}/${classObject.simpleName}/${method.name}".toLowerCase(), { request, response ->
                                 val result = ApplicationReturn()
                                 val methodParameters = method.parameters
                                 val validatedParameters = mutableMapOf<KParameter, Any>()
