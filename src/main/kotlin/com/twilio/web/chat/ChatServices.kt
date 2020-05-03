@@ -37,6 +37,17 @@ class ChatServices {
             throw Exception()
         }
         val result = Gson().fromJson(res.jsonObject.toString(), ChatVO.PendingChannelsData::class.java)
-        return result.channels.filter { it.members_count == 1 }
+        return result.channels.filter { it.members_count == 1 && it.friendly_name != "General Channel" }
+    }
+
+    fun putUserOnChannel(identity: String, channelSid: String){
+        val res = khttp.post("""
+            https://chat.twilio.com/v2/Services/${TWILIO_CHAT_SERVICE_SID}/Channels/$channelSid/Members
+        """.trimIndent(), auth = BasicAuthorization(TWILIO_API_KEY, TWILIO_API_SECRET),
+            data = mapOf("Identity" to identity),
+            params = mapOf("Identity" to identity))
+        if(res.statusCode !in 200..299){
+            throw Exception()
+        }
     }
 }

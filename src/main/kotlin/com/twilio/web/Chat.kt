@@ -8,23 +8,24 @@ import com.twilio.web.chat.ChatVO
 class Chat: Service() {
 
     private val twilioAuth = TwilioAuth()
-    private val charService = ChatServices()
+    private val chatService = ChatServices()
 
     @Post @RequestIp
     fun generateToken(ip: String, identity: String, device: String): ChatVO.TokenChannel {
         val tokenChannel = ChatVO.TokenChannel()
         tokenChannel.token = twilioAuth.generateToken(identity, "${ip}_${identity}_$device")
-        tokenChannel.channel = charService.createNewChannel()
+        tokenChannel.channel = chatService.createNewChannel()
+        chatService.putUserOnChannel(identity, tokenChannel.channel)
         return tokenChannel
     }
 
     @Post
     fun deleteChannel(sid: String) {
-        charService.deleteChannel(sid)
+        chatService.deleteChannel(sid)
     }
 
     @Get
     fun getPendingChannels(): List<ChatVO.ChannelData> {
-        return charService.getPendingChannels()
+        return chatService.getPendingChannels()
     }
 }
