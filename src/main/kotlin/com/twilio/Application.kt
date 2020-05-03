@@ -11,6 +11,7 @@ import spark.Spark
 import spark.Spark.before
 import spark.Spark.webSocket
 import spark.kotlin.port
+import spark.kotlin.staticFiles
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.declaredFunctions
@@ -32,6 +33,7 @@ class Application {
                     webSocket("/${classObject.java.packageName.replace(packageReflectionName.toRegex(), "").replace("\\.".toRegex(), "/")}/${classObject.simpleName}/socket".toLowerCase(), classInstance::class.java)
                 }
             }
+            staticFiles.location("/public")
             enableCors()
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()

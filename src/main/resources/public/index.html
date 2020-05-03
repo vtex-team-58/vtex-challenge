@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <title>Desafio VTEX</title>
+</head>
+
+<body>
+
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGOTIPO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <form class="form-inline my-2 my-lg-0 mw-100">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+  
+      <div class="menu-principal">
+        <a class="navbar-brand" href="#"><i class="far fa-user"></i></a>
+        <a class="navbar-brand" href="#"><i class="far fa-heart"></i></a>
+        <a class="navbar-brand" href="#"><i class="fas fa-cart-plus"></i></a>
+      </div>
+      </div>
+    </nav>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link navegation" href="#">feminino</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navegation" href="#">masculino</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navegation" href="#">infantil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navegation" href="#">esportivo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navegation" href="#">calçados</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <div id="carouselPage" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselPage" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselPage" data-slide-to="1"></li>
+        <li data-target="#carouselPage" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Primeiro Slide">
+        </div>
+        <div class="carousel-item">
+          <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Segundo Slide">
+        </div>
+        <div class="carousel-item">
+          <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Terceiro Slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselPage" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselPage" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  
+    <div class="container">
+      <div class="row m-5">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="img/02.jpg" alt="Moda Masculina">
+            <div class="card-body">
+              <h3 class="card-title">Moda Masculina</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="img/02.jpg" alt="Moda Masculina">
+            <div class="card-body">
+              <h3 class="card-title">Moda Masculina</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="img/02.jpg" alt="Moda Masculina">
+            <div class="card-body">
+              <h3 class="card-title">Moda Masculina</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4 text-center">Desafio VTEX</h1>
+        <p class="lead text-center">Desenvolvido pelo Time 58</p>
+      </div>
+    </div>
+    <div class="chat">
+      <div class="chat-open">
+          <div class="head-chat">
+              Atendimento
+              <a href="#" class="call">
+                  <i class="fas fa-video"></i>
+              </a>
+          </div>
+          <div class="main">
+              <ul id="list-message">
+                  <li>Teste</li>
+              </ul>
+          </div>
+          <div class="bottom-chat">
+              <input type="text" id="mensagem" class="flex-fill" placeholder="Digite sua mensagem">
+              <a href="#" onclick="sendMessage()" class="send-message ml-auto"><i class="far fa-paper-plane"></i></a>
+          </div>
+      </div>
+      <a href="#" class="chat-link" onclick="openChat()">
+          <div class="chat-button">
+              <i class="far fa-comment"></i>
+          </div>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    function openChat () {
+        event.preventDefault()
+        const chatButtom = document.getElementsByClassName('chat-button')[0]
+        chatButtom.style.display = 'none'
+        const chat = document.getElementsByClassName('chat-open')[0]
+        chat.style.display = 'flex'
+    }
+    function sendMessage () {
+        event.preventDefault()
+        const input = document.getElementById('mensagem')
+        const mensagem = input.value
+        input.value = ''
+        if(mensagem !== ''){
+            const node = document.createElement("LI");
+            node.classList.add("message-send")
+            const textnode = document.createTextNode(mensagem);
+            node.appendChild(textnode);
+            document.getElementById("list-message").appendChild(node);
+        }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+</body>
+</html>
