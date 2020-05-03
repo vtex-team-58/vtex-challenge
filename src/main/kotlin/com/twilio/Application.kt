@@ -10,6 +10,7 @@ import spark.Request
 import spark.Spark
 import spark.Spark.before
 import spark.Spark.webSocket
+import spark.kotlin.port
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.declaredFunctions
@@ -24,6 +25,7 @@ class Application {
         @JvmStatic
         fun main(args: Array<String>) {
             val classes: Set<Class<*>> = reflection.getSubTypesOf(Service::class.java)
+            port(getHerokuAssignedPort())
             for(classObject in classes.map { it.kotlin }){
                 val classInstance = classObject.createInstance()
                 if(classObject.annotations.any { it is WebSocket }){
@@ -63,7 +65,6 @@ class Application {
                     }
                 }
             }
-            Spark.init()
         }
 
         private fun enableCors(){
@@ -79,6 +80,12 @@ class Application {
             return request.queryMap(parameter.name).value() ?: (gson.fromJson(request.body(), type) as HashMap<String, Any?>)[parameter.name] ?: throw Exception("Não encontramos o parametro")
         }
 
+        private fun getHerokuAssignedPort(): Int {
+            val processBuilder = ProcessBuilder()
+            return if (processBuilder.environment()["PORT"] != null) {
+                processBuilder.environment()["PORT"]!!.toInt()
+            } else 4567
+        }
     }
 
     data class ApplicationReturn(
