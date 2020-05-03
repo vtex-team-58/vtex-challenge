@@ -2,12 +2,11 @@ package com.twilio.utils
 
 import com.twilio.jwt.accesstoken.AccessToken
 import com.twilio.jwt.accesstoken.ChatGrant
+import com.twilio.web.chat.ChatServices
 
 
 class TwilioAuth {
 
-    // endPointId é um identificador unico por usuário
-    // identity é o usuário
     fun generateToken(identity: String, endpointId: String): String {
         val grant = ChatGrant()
         grant.endpointId = endpointId

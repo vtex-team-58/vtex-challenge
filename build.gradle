@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    compile "khttp:khttp:0.1.0"
     compile "com.sparkjava:spark-kotlin:1.0.0-alpha"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7"
     compile "org.reflections:reflections:0.9.12"

@@ -44,6 +44,10 @@ class Application {
                                 val methodParameters = method.parameters
                                 val validatedParameters = mutableMapOf<KParameter, Any>()
                                 for(parameter in methodParameters){
+                                    if(parameter.name == "ip") {
+                                        validatedParameters[parameter] = request.ip()
+                                        continue
+                                    }
                                     validatedParameters[parameter] = if(parameter.kind == KParameter.Kind.INSTANCE) classInstance else getParameterName(parameter, request)
                                 }
                                 result.result = method.callBy(validatedParameters.toMap())
@@ -56,6 +60,10 @@ class Application {
                                 val methodParameters = method.parameters
                                 val validatedParameters = mutableMapOf<KParameter, Any>()
                                 for(parameter in methodParameters){
+                                    if(parameter.name == "ip") {
+                                        validatedParameters[parameter] = request.ip()
+                                        continue
+                                    }
                                     validatedParameters[parameter] = if(parameter.kind == KParameter.Kind.INSTANCE) classInstance else getParameterName(parameter, request)
                                 }
                                 result.result = method.callBy(validatedParameters.toMap())
