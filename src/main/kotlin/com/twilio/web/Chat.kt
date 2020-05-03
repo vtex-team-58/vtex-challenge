@@ -20,6 +20,13 @@ class Chat: Service() {
     }
 
     @Post
+    fun generateJustToken(ip: String, identity: String, device: String): ChatVO.TokenChannel {
+        val tokenChannel = ChatVO.TokenChannel()
+        tokenChannel.token = twilioAuth.generateToken(identity, "${ip}_${identity}_$device")
+        return tokenChannel
+    }
+
+    @Post
     fun deleteChannel(sid: String) {
         chatService.deleteChannel(sid)
     }
