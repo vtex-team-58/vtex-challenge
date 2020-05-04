@@ -73,10 +73,10 @@
           <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Primeiro Slide">
         </div>
         <div class="carousel-item">
-          <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Segundo Slide">
+          <img class="img-fluid d-block w-100" src="img/05.jpg" alt="Segundo Slide">
         </div>
         <div class="carousel-item">
-          <img class="img-fluid d-block w-100" src="img/01.jpg" alt="Terceiro Slide">
+          <img class="img-fluid d-block w-100" src="img/06.jpg" alt="Terceiro Slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselPage" role="button" data-slide="prev">
@@ -93,7 +93,7 @@
       <div class="row m-5">
         <div class="col-sm-4">
           <div class="card">
-            <img class="card-img-top" src="img/02.jpg" alt="Moda Masculina">
+            <img class="card-img-top" src="img/02.jpg" alt="Moda Masculina" style="height: 325px;">
             <div class="card-body">
               <h3 class="card-title">Moda Masculina</h3>
             </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="col-sm-4">
           <div class="card">
-            <img class="card-img-top" src="img/03.jpg" alt="Moda Masculina">
+            <img class="card-img-top" src="img/03.jpg" alt="Moda Masculina" style="height: 325px;">
             <div class="card-body">
               <h3 class="card-title">Moda Masculina</h3>
             </div>
@@ -109,7 +109,7 @@
         </div>
         <div class="col-sm-4">
           <div class="card">
-            <img class="card-img-top" src="img/04.jpg" alt="Moda Masculina">
+            <img class="card-img-top" src="img/04.jpg" alt="Moda Masculina" style="height: 325px;">
             <div class="card-body">
               <h3 class="card-title">Moda Masculina</h3>
             </div>
@@ -150,18 +150,18 @@
     </div>
   </main>
 
-  <script src="js/twilio-chat.min.js">
+  <script>
 
-    function connectTwilio(){
-      console.log("eai puto")
-      let teste = fetch('/chat/generatetoken', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'}, 
-        body: JSON.stringify({identity: "nandinho", device: "browser"})
-      });
+    // function connectTwilio(){
+    //   console.log("eai puto")
+    //   let teste = fetch('/chat/generatetoken', {
+    //     method: 'POST',
+    //     headers: {'Content-Type':'application/json'}, 
+    //     body: JSON.stringify({identity: "nandinho", device: "browser"})
+    //   });
 
-      // let client = Twilio.Chat.Client.create(token);
-    }
+    //   // let client = Twilio.Chat.Client.create(token);
+    // }
     
     function openChat () {
         event.preventDefault()
@@ -185,7 +185,7 @@
         }
     }
 
-    connectTwilio();
+    // connectTwilio();
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
