@@ -150,6 +150,7 @@
     </div>
   </main>
 
+  <script src="https://media.twiliocdn.com/sdk/js/chat/v3.3/twilio-chat.min.js"></script>
   <script>
 
     // function connectTwilio(){
@@ -183,6 +184,35 @@
             node.appendChild(textnode);
             document.getElementById("list-message").appendChild(node);
         }
+        console.log("testeee")
+        receiveAndSendOtherMessage(mensagem)
+    }
+
+    async function receiveAndSendOtherMessage(mensagem){
+      console.log(mensagem)
+      if(mensagem == "Olá, boa noite!"){
+        await new Promise(r => setTimeout(r, 3000)); 
+        createMessageReceived("Olá, em que posso ajuda-lo?")
+      }
+      if(mensagem == "Poderia me ajudar a achar uma masculina preta?"){
+        await new Promise(r => setTimeout(r, 3000)); 
+        createMessageReceived("Claro! Nós temos um modelo em promoção que está por R$39,90. Pode ser esse modelo?")
+      }
+      if(mensagem == "Pode sim. Tu consegue inserir no carrinho também?"){
+        await new Promise(r => setTimeout(r, 3000)); 
+        createMessageReceived("Conseguimos! Adicionei um modelo ao seu carrinho. Algo mais?")
+      }
+      if(mensagem == "Não, muito obrigado!"){
+        await new Promise(r => setTimeout(r, 3000)); 
+        createMessageReceived("Nós que agradecemos a sua escolha.")
+      }
+    }
+
+    function createMessageReceived(mensagem){
+      const node = document.createElement("LI");
+      const textnode = document.createTextNode(mensagem);
+      node.appendChild(textnode);
+      document.getElementById("list-message").appendChild(node);
     }
 
     // connectTwilio();
